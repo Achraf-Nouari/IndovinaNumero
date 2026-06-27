@@ -24,7 +24,17 @@ class View(object):
 
         self._row1 = ft.Row(controls= [self._txtNmax, self._txtTmax, self._txtT])
 
-        self._page.add(self._row1)
+        self._txtInTentativo = ft.TextField(label = "Valore")
+        self._btnReset = ft.ElevatedButton(text="Nuova Partita", on_click=self._controller.reset) #nome metodo e non chiamata al metodo
+        self._btnPlay = ft.ElevatedButton(text="Indovina", on_click=self._controller.play)
+
+
+        self.row2 = ft.Row(controls=[self._txtInTentativo,
+                                     self._btnReset,
+                                     self._btnPlay])
+
+        self._lvOut = ft.ListView(expand=True)
+        self._page.add(self._row1, self.row2, self._lvOut)
         self._page.update()
 
     def setController(self,controller):

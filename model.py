@@ -53,6 +53,14 @@ class Model(object):
     def Tmax(self):
         return self._Tmax
 
+    @property
+    def T(self):
+        return self._T
+
+    @property
+    def segreto(self):
+        return self._segreto
+
 if __name__ == "__main__":
     m = Model()
     m.reset()
