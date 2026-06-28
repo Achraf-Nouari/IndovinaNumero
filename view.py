@@ -21,20 +21,25 @@ class View(object):
                                      disabled=True)
         self._txtT = ft.TextField(label="Tentativi rimanenti",
                                  disabled=True)
-
-        self._row1 = ft.Row(controls= [self._txtNmax, self._txtTmax, self._txtT])
-
-        self._txtInTentativo = ft.TextField(label = "Valore")
-        self._btnReset = ft.ElevatedButton(text="Nuova Partita", on_click=self._controller.reset) #nome metodo e non chiamata al metodo
+        self._txtInTentativo = ft.TextField(label="Valore")
+        self._btnReset = ft.ElevatedButton(text="Nuova Partita",
+                                           on_click=self._controller.reset)  # nome metodo e non chiamata al metodo
         self._btnPlay = ft.ElevatedButton(text="Indovina", on_click=self._controller.play)
 
 
-        self.row2 = ft.Row(controls=[self._txtInTentativo,
-                                     self._btnReset,
+        self._row1 = ft.Row(controls= [self._txtNmax, self._btnReset])
+
+
+
+        self.row2 = ft.Row(controls=[self._txtT,
+                                     self._txtTmax])
+
+        self.row3 = ft.Row(controls=[self._txtInTentativo,
                                      self._btnPlay])
 
+
         self._lvOut = ft.ListView(expand=True)
-        self._page.add(self._row1, self.row2, self._lvOut)
+        self._page.add(self._row1, self.row2, self.row3, self._lvOut)
         self._page.update()
 
     def setController(self,controller):
